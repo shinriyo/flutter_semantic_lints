@@ -250,6 +250,82 @@ Done:
 
 ---
 
+## Release Command Policy
+
+Before suggesting or running pub.dev release/auth commands, verify the actual
+Dart executable and available `dart pub` subcommands in the current environment.
+
+Run:
+
+```sh
+which dart
+dart --version
+dart pub --help
+```
+
+Do not assume that `dart pub login`, `dart pub logout`, or `dart pub token`
+exist for the user's active Dart SDK. Only suggest commands shown by
+`dart pub --help` or confirmed by the user.
+
+For release readiness, use:
+
+```sh
+dart analyze
+cd example
+dart run custom_lint
+cd ..
+dart pub publish --dry-run
+```
+
+Only publish after `dart pub publish --dry-run` reports zero warnings.
+
+For actual publishing, use:
+
+```sh
+dart pub publish
+```
+
+or, if the user explicitly accepts the irreversible publish confirmation:
+
+```sh
+dart pub publish --force
+```
+
+Publishing is irreversible. Do not create a git release tag until pub.dev
+publish succeeds.
+
+If publish fails after OAuth with:
+
+```text
+gzip decoder failed: FormatException: Filter error, bad data.
+```
+
+treat it as a publish transport/SDK/environment problem, not as proof that the
+package archive is invalid. First inspect the real verbose log:
+
+```sh
+dart pub publish --force -v
+tail -n 80 ~/.pub-cache/log/pub_log.txt
+```
+
+Then verify whether the package actually exists:
+
+```sh
+curl -i https://pub.dev/api/packages/flutter_semantic_lints
+```
+
+If the package is still not published, try a different confirmed Dart SDK,
+network, or clean `PUB_CACHE`. Do not invent auth commands.
+
+After a successful `0.1.0` publish, create and push the git tag:
+
+```sh
+git tag -a v0.1.0 -m "Release 0.1.0"
+git push origin v0.1.0
+```
+
+---
+
 ## Mindset
 
 Value is NOT number of rules.
