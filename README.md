@@ -26,9 +26,9 @@ This package detects:
 
 ---
 
-## Examples
+## Rules
 
-### Conflicting parameters
+### `box_decoration_color_gradient`
 
 Bad:
 
@@ -41,6 +41,26 @@ BoxDecoration(
 
 `color` is ignored.
 
+Good:
+
+```dart
+BoxDecoration(
+  color: Colors.red,
+)
+```
+
+Good:
+
+```dart
+BoxDecoration(
+  gradient: LinearGradient(...),
+)
+```
+
+Use either `color` or `gradient`, not both.
+
+### `container_color_decoration`
+
 Bad:
 
 ```dart
@@ -50,9 +70,29 @@ Container(
 )
 ```
 
-`color` is ignored.
+`color` conflicts with `decoration`.
 
-### Useless parameters
+Good:
+
+```dart
+Container(
+  color: Colors.red,
+)
+```
+
+Good:
+
+```dart
+Container(
+  decoration: BoxDecoration(
+    color: Colors.red,
+  ),
+)
+```
+
+Move the color into `decoration` when using `decoration`.
+
+### `expanded_flex_one`
 
 Bad:
 
@@ -62,7 +102,26 @@ Expanded(flex: 1)
 
 Default value is already `1`.
 
-### No-effect widgets
+Good:
+
+```dart
+Expanded(
+  child: child,
+)
+```
+
+Good:
+
+```dart
+Expanded(
+  flex: 2,
+  child: child,
+)
+```
+
+Omit `flex` when the value is `1`.
+
+### `opacity_one`
 
 Bad:
 
@@ -74,6 +133,23 @@ Opacity(
 ```
 
 No visual effect. Adds cost only.
+
+Good:
+
+```dart
+child
+```
+
+Good:
+
+```dart
+Opacity(
+  opacity: 0.5,
+  child: child,
+)
+```
+
+Remove `Opacity` when the value is `1.0`.
 
 ## Installation
 
