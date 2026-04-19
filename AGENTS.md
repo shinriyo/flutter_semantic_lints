@@ -41,6 +41,10 @@ Examples:
 - BoxDecoration(color + gradient)
 - Container(color + decoration)
 
+Implemented rules:
+- box_decoration_color_gradient
+- container_color_decoration
+
 ---
 
 ### 2. useless_parameter
@@ -50,6 +54,9 @@ Examples:
 - Expanded(flex: 1)
 - Visibility(visible: true)
 
+Implemented rules:
+- expanded_flex_one
+
 ---
 
 ### 3. no_effect_widget
@@ -57,6 +64,9 @@ Detect widgets that do not affect layout, rendering, or behavior.
 
 Examples:
 - Opacity(opacity: 1.0)
+
+Implemented rules:
+- opacity_one
 
 ---
 
@@ -83,9 +93,9 @@ lib/
 
 ---
 
-## Initial MVP Rules
+## Implemented Rules
 
-Implement ONLY these first:
+The current package implements only the MVP rules.
 
 ### conflicting_parameter
 - box_decoration_color_gradient
@@ -97,6 +107,9 @@ Implement ONLY these first:
 ### no_effect_widget
 - opacity_one
 
+New rules may be added only when they clearly fit one of the three categories
+and have near-zero false positives.
+
 ---
 
 ## Detection Policy
@@ -106,7 +119,7 @@ A rule is valid ONLY if:
 - It has near-zero false positives
 - It is explainable in one sentence
 
-If unsure → DO NOT implement
+If unsure, DO NOT implement.
 
 ---
 
@@ -144,6 +157,42 @@ Each rule MUST include:
 2. negative case
 3. edge case (should NOT trigger)
 
+Current test coverage is in the example project:
+
+- `example/lib/main.dart` contains positive cases with `// expect_lint:`
+- `example/lib/negative_cases.dart` contains cases that should not trigger
+- `example/lib/edge_cases.dart` contains boundary cases that should not trigger
+
+Run:
+
+```sh
+cd example
+dart run custom_lint
+```
+
+The command should report no issues because expected lints are matched and
+negative/edge cases stay quiet.
+
+To manually verify real diagnostics, temporarily remove the `// expect_lint:`
+comments from `example/lib/main.dart` and run the same command. The four MVP
+rules should be reported.
+
+---
+
+## Current Status
+
+Done:
+
+1. Created custom_lint package
+2. Implemented plugin.dart
+3. Implemented 4 MVP rules:
+   - BoxDecoration conflict
+   - Container conflict
+   - Expanded(flex: 1)
+   - Opacity(1.0)
+4. Added example project
+5. Verified lint triggers correctly
+
 ---
 
 ## Coding Principles
@@ -152,20 +201,6 @@ Each rule MUST include:
 - avoid over-engineering
 - write minimal AST checks
 - no premature optimization
-
----
-
-## First Task for Codex
-
-1. Create custom_lint package
-2. Implement plugin.dart
-3. Implement 4 rules:
-   - BoxDecoration conflict
-   - Container conflict
-   - Expanded(flex:1)
-   - Opacity(1.0)
-4. Add example project
-5. Ensure lint triggers correctly
 
 ---
 

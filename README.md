@@ -181,9 +181,30 @@ dart run custom_lint
 
 ## Rule Categories
 
-- `conflicting_parameter`
-- `useless_parameter`
-- `no_effect_widget`
+### `conflicting_parameter`
+
+- `box_decoration_color_gradient`
+- `container_color_decoration`
+
+### `useless_parameter`
+
+- `expanded_flex_one`
+
+### `no_effect_widget`
+
+- `opacity_one`
+
+## Testing
+
+The example project doubles as integration coverage.
+
+```sh
+cd example
+dart run custom_lint
+```
+
+Positive cases use `// expect_lint:` comments. Negative and edge cases live in
+separate example files and should stay quiet.
 
 ## Non-goals
 
@@ -196,7 +217,7 @@ dart run custom_lint
 
 MVP
 
-Initial rules:
+Implemented rules:
 
 - BoxDecoration conflict
 - Container conflict
