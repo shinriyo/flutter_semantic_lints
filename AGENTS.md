@@ -93,6 +93,52 @@ lib/
 
 ---
 
+## Initial Required Rules
+
+The following 4 rules are mandatory:
+
+### conflicting_parameter
+- box_decoration_color_gradient
+- container_color_decoration
+
+### useless_parameter
+- expanded_flex_one
+
+### no_effect_widget
+- opacity_one
+
+These 4 rules must be implemented first.
+
+---
+
+## Additional Rules Policy
+
+Additional rules may be implemented only if all conditions below are satisfied:
+
+1. The rule belongs to exactly one of:
+   - conflicting_parameter
+   - useless_parameter
+   - no_effect_widget
+
+2. The rule is almost always correct
+
+3. The rule has near-zero false positives
+
+4. The rule is explainable in one sentence
+
+5. The rule is documented in:
+   - AGENTS.md
+   - README.md
+
+6. The rule has tests:
+   - positive case
+   - negative case
+   - edge case
+
+If any of the above is not satisfied, do not implement the rule.
+
+---
+
 ## Implemented Rules
 
 The current package implements only the MVP rules.
