@@ -1,6 +1,6 @@
 name: flutter_semantic_lints
 description: Custom lint rules that detect meaningless, conflicting, or no-effect Flutter code.
-version: 0.1.0
+version: 0.1.1
 repository: https://github.com/shinriyo/flutter_semantic_lints
 issue_tracker: https://github.com/shinriyo/flutter_semantic_lints/issues
 

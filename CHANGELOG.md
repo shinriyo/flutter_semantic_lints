@@ -1,3 +1,8 @@
+## 0.1.1
+
+- Exclude the example project from package-level static analysis.
+- Keep custom_lint integration checks in the example project for CI and local testing.
+
 ## 0.1.0
 
 - Initial release.
