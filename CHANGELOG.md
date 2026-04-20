@@ -3,6 +3,7 @@
 - Add pub.dev link to README.
 - Add localized README files for Japanese, Korean, Vietnamese, and Chinese.
 - Exclude the example custom_lint analyzer plugin config from the published archive.
+- Add dartdoc comments for the public library API.
 
 ## 0.1.1
 
