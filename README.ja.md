@@ -2,27 +2,27 @@
 
 [pub.dev](https://pub.dev/packages/flutter_semantic_lints)
 
-English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | [中文](README.zh.md)
+[English](README.md) | 日本語 | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | [中文](README.zh.md)
 
-Not style. Not formatting.
+スタイルではありません。フォーマットでもありません。
 
-This package detects meaningless Flutter code.
+このパッケージは、意味のない Flutter コードを検出します。
 
 ---
 
-## Why this exists
+## なぜ存在するのか
 
-Most lint packages focus on:
+多くの lint パッケージは次のようなものに注目します。
 
 - style
 - naming
 - best practices
 
-But they miss something critical:
+しかし、もっと重要なものを見落とすことがあります。
 
-Code that works but makes no sense.
+動くけれど、意味がないコードです。
 
-This package detects:
+このパッケージは次のようなコードを検出します。
 
 - conflicting parameters
 - useless parameters
@@ -30,7 +30,7 @@ This package detects:
 
 ---
 
-## Rules
+## ルール
 
 ### `box_decoration_color_gradient`
 
@@ -43,7 +43,7 @@ BoxDecoration(
 )
 ```
 
-`color` is ignored.
+`gradient` がある場合、`color` は無視されます。
 
 Good:
 
@@ -61,7 +61,7 @@ BoxDecoration(
 )
 ```
 
-Use either `color` or `gradient`, not both.
+`color` と `gradient` はどちらか一方だけを使います。
 
 ### `container_color_decoration`
 
@@ -74,7 +74,7 @@ Container(
 )
 ```
 
-`color` conflicts with `decoration`.
+`color` は `decoration` と競合します。
 
 Good:
 
@@ -94,7 +94,7 @@ Container(
 )
 ```
 
-Move the color into `decoration` when using `decoration`.
+`decoration` を使う場合は、色を `decoration` の中に移動します。
 
 ### `expanded_flex_one`
 
@@ -104,7 +104,7 @@ Bad:
 Expanded(flex: 1)
 ```
 
-Default value is already `1`.
+デフォルト値はすでに `1` です。
 
 Good:
 
@@ -123,7 +123,7 @@ Expanded(
 )
 ```
 
-Omit `flex` when the value is `1`.
+値が `1` の場合、`flex` は省略します。
 
 ### `opacity_one`
 
@@ -136,7 +136,7 @@ Opacity(
 )
 ```
 
-No visual effect. Adds cost only.
+見た目に影響がありません。コストだけが増えます。
 
 Good:
 
@@ -153,9 +153,9 @@ Opacity(
 )
 ```
 
-Remove `Opacity` when the value is `1.0`.
+値が `1.0` の場合、`Opacity` を取り除きます。
 
-## Installation
+## インストール
 
 ```yaml
 dev_dependencies:
@@ -163,7 +163,7 @@ dev_dependencies:
   flutter_semantic_lints:
 ```
 
-## Setup
+## セットアップ
 
 ```yaml
 analyzer:
@@ -171,19 +171,19 @@ analyzer:
     - custom_lint
 ```
 
-## Run
+## 実行
 
 ```sh
 dart run custom_lint
 ```
 
-## Philosophy
+## 方針
 
 - correctness over style
 - semantics over formatting
 - signal over noise
 
-## Rule Categories
+## ルールカテゴリ
 
 ### `conflicting_parameter`
 
@@ -198,30 +198,29 @@ dart run custom_lint
 
 - `opacity_one`
 
-## Testing
+## テスト
 
-The example project doubles as integration coverage.
+example project は integration coverage も兼ねています。
 
 ```sh
 cd example
 dart run custom_lint
 ```
 
-Positive cases use `// expect_lint:` comments. Negative and edge cases live in
-separate example files and should stay quiet.
+positive case は `// expect_lint:` を使います。negative case と edge case は別ファイルにあり、lint が出ないことを確認します。
 
-## Non-goals
+## 対象外
 
 - style lint
 - naming rules
 - formatting
 - architecture opinions
 
-## Status
+## ステータス
 
 MVP
 
-Implemented rules:
+実装済みルール:
 
 - BoxDecoration conflict
 - Container conflict
@@ -230,11 +229,11 @@ Implemented rules:
 
 ## Contributing
 
-Only submit rules that:
+次の条件を満たすルールだけを送ってください。
 
-- are objectively correct
-- have near-zero false positives
-- are explainable in one sentence
+- objectively correct
+- near-zero false positives
+- explainable in one sentence
 
 ## License
 

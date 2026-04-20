@@ -1,3 +1,8 @@
+## 0.1.2
+
+- Add pub.dev link to README.
+- Add localized README files for Japanese, Korean, Vietnamese, and Chinese.
+
 ## 0.1.1
 
 - Exclude the example project from package-level static analysis.

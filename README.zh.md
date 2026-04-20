@@ -2,27 +2,27 @@
 
 [pub.dev](https://pub.dev/packages/flutter_semantic_lints)
 
-English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | [中文](README.zh.md)
+[English](README.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | 中文
 
-Not style. Not formatting.
+不是样式 lint。不是格式化 lint。
 
-This package detects meaningless Flutter code.
+这个包用于检测语义上没有意义的 Flutter 代码。
 
 ---
 
-## Why this exists
+## 为什么存在
 
-Most lint packages focus on:
+大多数 lint 包关注：
 
 - style
 - naming
 - best practices
 
-But they miss something critical:
+但它们可能会漏掉一个更关键的问题。
 
-Code that works but makes no sense.
+代码可以运行，但没有意义。
 
-This package detects:
+这个包检测：
 
 - conflicting parameters
 - useless parameters
@@ -30,7 +30,7 @@ This package detects:
 
 ---
 
-## Rules
+## 规则
 
 ### `box_decoration_color_gradient`
 
@@ -43,7 +43,7 @@ BoxDecoration(
 )
 ```
 
-`color` is ignored.
+设置 `gradient` 时，`color` 会被忽略。
 
 Good:
 
@@ -61,7 +61,7 @@ BoxDecoration(
 )
 ```
 
-Use either `color` or `gradient`, not both.
+`color` 和 `gradient` 只使用其中一个。
 
 ### `container_color_decoration`
 
@@ -74,7 +74,7 @@ Container(
 )
 ```
 
-`color` conflicts with `decoration`.
+`color` 与 `decoration` 冲突。
 
 Good:
 
@@ -94,7 +94,7 @@ Container(
 )
 ```
 
-Move the color into `decoration` when using `decoration`.
+使用 `decoration` 时，把颜色放到 `decoration` 里面。
 
 ### `expanded_flex_one`
 
@@ -104,7 +104,7 @@ Bad:
 Expanded(flex: 1)
 ```
 
-Default value is already `1`.
+默认值已经是 `1`。
 
 Good:
 
@@ -123,7 +123,7 @@ Expanded(
 )
 ```
 
-Omit `flex` when the value is `1`.
+当值为 `1` 时省略 `flex`。
 
 ### `opacity_one`
 
@@ -136,7 +136,7 @@ Opacity(
 )
 ```
 
-No visual effect. Adds cost only.
+没有视觉效果，只会增加成本。
 
 Good:
 
@@ -153,9 +153,9 @@ Opacity(
 )
 ```
 
-Remove `Opacity` when the value is `1.0`.
+当值为 `1.0` 时移除 `Opacity`。
 
-## Installation
+## 安装
 
 ```yaml
 dev_dependencies:
@@ -163,7 +163,7 @@ dev_dependencies:
   flutter_semantic_lints:
 ```
 
-## Setup
+## 设置
 
 ```yaml
 analyzer:
@@ -171,19 +171,19 @@ analyzer:
     - custom_lint
 ```
 
-## Run
+## 运行
 
 ```sh
 dart run custom_lint
 ```
 
-## Philosophy
+## 理念
 
 - correctness over style
 - semantics over formatting
 - signal over noise
 
-## Rule Categories
+## 规则分类
 
 ### `conflicting_parameter`
 
@@ -198,30 +198,29 @@ dart run custom_lint
 
 - `opacity_one`
 
-## Testing
+## 测试
 
-The example project doubles as integration coverage.
+example project 同时作为 integration coverage。
 
 ```sh
 cd example
 dart run custom_lint
 ```
 
-Positive cases use `// expect_lint:` comments. Negative and edge cases live in
-separate example files and should stay quiet.
+positive case 使用 `// expect_lint:`。negative case 和 edge case 在单独文件中，不应产生 lint。
 
-## Non-goals
+## 非目标
 
 - style lint
 - naming rules
 - formatting
 - architecture opinions
 
-## Status
+## 状态
 
 MVP
 
-Implemented rules:
+已实现规则：
 
 - BoxDecoration conflict
 - Container conflict
@@ -230,11 +229,11 @@ Implemented rules:
 
 ## Contributing
 
-Only submit rules that:
+只提交满足以下条件的规则：
 
-- are objectively correct
-- have near-zero false positives
-- are explainable in one sentence
+- objectively correct
+- near-zero false positives
+- explainable in one sentence
 
 ## License
 

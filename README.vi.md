@@ -2,27 +2,27 @@
 
 [pub.dev](https://pub.dev/packages/flutter_semantic_lints)
 
-English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | [中文](README.zh.md)
+[English](README.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | Tiếng Việt | [中文](README.zh.md)
 
-Not style. Not formatting.
+Không phải lint về style. Không phải lint về formatting.
 
-This package detects meaningless Flutter code.
+Gói này phát hiện mã Flutter vô nghĩa về mặt ngữ nghĩa.
 
 ---
 
-## Why this exists
+## Vì sao gói này tồn tại
 
-Most lint packages focus on:
+Phần lớn các gói lint tập trung vào:
 
 - style
 - naming
 - best practices
 
-But they miss something critical:
+Nhưng chúng có thể bỏ sót một điều quan trọng.
 
-Code that works but makes no sense.
+Mã vẫn chạy, nhưng không có ý nghĩa.
 
-This package detects:
+Gói này phát hiện:
 
 - conflicting parameters
 - useless parameters
@@ -30,7 +30,7 @@ This package detects:
 
 ---
 
-## Rules
+## Quy tắc
 
 ### `box_decoration_color_gradient`
 
@@ -43,7 +43,7 @@ BoxDecoration(
 )
 ```
 
-`color` is ignored.
+`color` bị bỏ qua khi có `gradient`.
 
 Good:
 
@@ -61,7 +61,7 @@ BoxDecoration(
 )
 ```
 
-Use either `color` or `gradient`, not both.
+Chỉ dùng một trong hai: `color` hoặc `gradient`.
 
 ### `container_color_decoration`
 
@@ -74,7 +74,7 @@ Container(
 )
 ```
 
-`color` conflicts with `decoration`.
+`color` xung đột với `decoration`.
 
 Good:
 
@@ -94,7 +94,7 @@ Container(
 )
 ```
 
-Move the color into `decoration` when using `decoration`.
+Khi dùng `decoration`, hãy đưa màu vào trong `decoration`.
 
 ### `expanded_flex_one`
 
@@ -104,7 +104,7 @@ Bad:
 Expanded(flex: 1)
 ```
 
-Default value is already `1`.
+Giá trị mặc định đã là `1`.
 
 Good:
 
@@ -123,7 +123,7 @@ Expanded(
 )
 ```
 
-Omit `flex` when the value is `1`.
+Bỏ `flex` khi giá trị là `1`.
 
 ### `opacity_one`
 
@@ -136,7 +136,7 @@ Opacity(
 )
 ```
 
-No visual effect. Adds cost only.
+Không có hiệu ứng hiển thị. Chỉ tăng chi phí.
 
 Good:
 
@@ -153,9 +153,9 @@ Opacity(
 )
 ```
 
-Remove `Opacity` when the value is `1.0`.
+Loại bỏ `Opacity` khi giá trị là `1.0`.
 
-## Installation
+## Cài đặt
 
 ```yaml
 dev_dependencies:
@@ -163,7 +163,7 @@ dev_dependencies:
   flutter_semantic_lints:
 ```
 
-## Setup
+## Thiết lập
 
 ```yaml
 analyzer:
@@ -171,19 +171,19 @@ analyzer:
     - custom_lint
 ```
 
-## Run
+## Chạy
 
 ```sh
 dart run custom_lint
 ```
 
-## Philosophy
+## Triết lý
 
 - correctness over style
 - semantics over formatting
 - signal over noise
 
-## Rule Categories
+## Nhóm quy tắc
 
 ### `conflicting_parameter`
 
@@ -198,30 +198,29 @@ dart run custom_lint
 
 - `opacity_one`
 
-## Testing
+## Kiểm thử
 
-The example project doubles as integration coverage.
+example project cũng đóng vai trò integration coverage.
 
 ```sh
 cd example
 dart run custom_lint
 ```
 
-Positive cases use `// expect_lint:` comments. Negative and edge cases live in
-separate example files and should stay quiet.
+Positive case dùng `// expect_lint:`. Negative case và edge case nằm trong các file riêng và không được phát sinh lint.
 
-## Non-goals
+## Không hướng tới
 
 - style lint
 - naming rules
 - formatting
 - architecture opinions
 
-## Status
+## Trạng thái
 
 MVP
 
-Implemented rules:
+Quy tắc đã triển khai:
 
 - BoxDecoration conflict
 - Container conflict
@@ -230,11 +229,11 @@ Implemented rules:
 
 ## Contributing
 
-Only submit rules that:
+Chỉ gửi quy tắc đáp ứng các điều kiện sau:
 
-- are objectively correct
-- have near-zero false positives
-- are explainable in one sentence
+- objectively correct
+- near-zero false positives
+- explainable in one sentence
 
 ## License
 
