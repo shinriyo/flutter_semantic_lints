@@ -203,6 +203,7 @@ dart run custom_lint
 The example project doubles as integration coverage.
 
 ```sh
+cp example/analysis_options.custom_lint.yaml example/analysis_options.yaml
 cd example
 dart run custom_lint
 ```

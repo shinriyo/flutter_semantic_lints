@@ -29,6 +29,10 @@ jobs:
         working-directory: example
         run: flutter pub get
 
+      - name: Enable custom_lint for example
+        working-directory: example
+        run: cp analysis_options.custom_lint.yaml analysis_options.yaml
+
       - name: Run custom_lint integration checks
         working-directory: example
         run: dart run custom_lint

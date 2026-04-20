@@ -4,6 +4,7 @@
 - Add localized README files for Japanese, Korean, Vietnamese, and Chinese.
 - Exclude the example custom_lint analyzer plugin config from the published archive.
 - Add dartdoc comments for the public library API.
+- Keep the example custom_lint analyzer plugin config as an opt-in template.
 
 ## 0.1.1
 
