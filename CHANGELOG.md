@@ -5,6 +5,7 @@
 - Exclude the example custom_lint analyzer plugin config from the published archive.
 - Add dartdoc comments for the public library API.
 - Keep the example custom_lint analyzer plugin config as an opt-in template.
+- Document per-rule custom_lint configuration.
 
 ## 0.1.1
 

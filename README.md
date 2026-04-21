@@ -177,6 +177,36 @@ analyzer:
 dart run custom_lint
 ```
 
+## Configuration
+
+All rules are enabled by default.
+
+Disable a rule:
+
+```yaml
+analyzer:
+  plugins:
+    - custom_lint
+
+custom_lint:
+  rules:
+    - opacity_one: false
+```
+
+Enable only selected rules:
+
+```yaml
+analyzer:
+  plugins:
+    - custom_lint
+
+custom_lint:
+  enable_all_lint_rules: false
+  rules:
+    - box_decoration_color_gradient
+    - container_color_decoration
+```
+
 ## Philosophy
 
 - correctness over style
