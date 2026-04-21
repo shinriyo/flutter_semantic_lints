@@ -2,7 +2,7 @@
 
 [pub.dev](https://pub.dev/packages/flutter_semantic_lints)
 
-English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | [中文](README.zh.md)
+English | [日本語](README.ja.md) | [한국어](README.ko.md) | [Tiếng Việt](README.vi.md) | [中文](README.zh.md) | [Português](README.pt.md) | [हिन्दी + English](README.hi.md) | [Bahasa Indonesia](README.id.md) | [Türkçe](README.tr.md) | [Español](README.es.md) | [العربية](README.ar.md)
 
 Not style. Not formatting.
 
