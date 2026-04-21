@@ -53,9 +53,14 @@ Detect parameters that are redundant or equal to default values.
 Examples:
 - Expanded(flex: 1)
 - Visibility(visible: true)
+- EdgeInsets.all(0)
+- BorderRadius.circular(0)
 
 Implemented rules:
 - expanded_flex_one
+- visibility_visible_true
+- edge_insets_all_zero
+- border_radius_circular_zero
 
 ---
 
@@ -64,9 +69,15 @@ Detect widgets that do not affect layout, rendering, or behavior.
 
 Examples:
 - Opacity(opacity: 1.0)
+- Padding(padding: EdgeInsets.zero)
+- Transform.scale(scale: 1.0)
+- RotatedBox(quarterTurns: 0)
 
 Implemented rules:
 - opacity_one
+- padding_zero
+- transform_scale_one
+- rotated_box_zero_turns
 
 ---
 
@@ -141,7 +152,8 @@ If any of the above is not satisfied, do not implement the rule.
 
 ## Implemented Rules
 
-The current package implements only the MVP rules.
+The current package implements the MVP rules plus accepted near-zero false
+positive additions.
 
 ### conflicting_parameter
 - box_decoration_color_gradient
@@ -149,9 +161,15 @@ The current package implements only the MVP rules.
 
 ### useless_parameter
 - expanded_flex_one
+- visibility_visible_true
+- edge_insets_all_zero
+- border_radius_circular_zero
 
 ### no_effect_widget
 - opacity_one
+- padding_zero
+- transform_scale_one
+- rotated_box_zero_turns
 
 New rules may be added only when they clearly fit one of the three categories
 and have near-zero false positives.
@@ -220,7 +238,7 @@ The command should report no issues because expected lints are matched and
 negative/edge cases stay quiet.
 
 To manually verify real diagnostics, temporarily remove the `// expect_lint:`
-comments from `example/lib/main.dart` and run the same command. The four MVP
+comments from `example/lib/main.dart` and run the same command. The implemented
 rules should be reported.
 
 ---
@@ -231,13 +249,20 @@ Done:
 
 1. Created custom_lint package
 2. Implemented plugin.dart
-3. Implemented 4 MVP rules:
+3. Implemented MVP rules:
    - BoxDecoration conflict
    - Container conflict
    - Expanded(flex: 1)
    - Opacity(1.0)
-4. Added example project
-5. Verified lint triggers correctly
+4. Added accepted additional rules:
+   - Visibility(visible: true)
+   - EdgeInsets.all(0)
+   - BorderRadius.circular(0)
+   - Padding(padding: EdgeInsets.zero)
+   - Transform.scale(scale: 1.0)
+   - RotatedBox(quarterTurns: 0)
+5. Added example project
+6. Verified lint triggers correctly
 
 ---
 

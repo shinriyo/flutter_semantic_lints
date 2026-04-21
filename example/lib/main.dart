@@ -37,6 +37,38 @@ class ExampleApp extends StatelessWidget {
                 child: Container(color: Colors.green),
               ),
             ),
+            Visibility(
+              // expect_lint: visibility_visible_true
+              visible: true,
+              child: const SizedBox(width: 20, height: 20),
+            ),
+            Padding(
+              // expect_lint: padding_zero
+              padding: EdgeInsets.zero,
+              child: const SizedBox(width: 20, height: 20),
+            ),
+            Transform.scale(
+              // expect_lint: transform_scale_one
+              scale: 1.0,
+              child: const SizedBox(width: 20, height: 20),
+            ),
+            RotatedBox(
+              // expect_lint: rotated_box_zero_turns
+              quarterTurns: 0,
+              child: const SizedBox(width: 20, height: 20),
+            ),
+            Padding(
+              // expect_lint: edge_insets_all_zero
+              padding: EdgeInsets.all(0),
+              child: const SizedBox(width: 20, height: 20),
+            ),
+            DecoratedBox(
+              decoration: BoxDecoration(
+                // expect_lint: border_radius_circular_zero
+                borderRadius: BorderRadius.circular(0),
+              ),
+              child: const SizedBox(width: 20, height: 20),
+            ),
           ],
         ),
       ),

@@ -1,3 +1,15 @@
+## 0.1.3
+
+- Add useless parameter rules:
+  - `visibility_visible_true`
+  - `edge_insets_all_zero`
+  - `border_radius_circular_zero`
+- Add no-effect widget rules:
+  - `padding_zero`
+  - `transform_scale_one`
+  - `rotated_box_zero_turns`
+- Add positive, negative, and edge cases for the new rules.
+
 ## 0.1.2
 
 - Add pub.dev link to README.

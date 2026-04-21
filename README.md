@@ -125,6 +125,68 @@ Expanded(
 
 Omit `flex` when the value is `1`.
 
+### `visibility_visible_true`
+
+Bad:
+
+```dart
+Visibility(
+  visible: true,
+  child: child,
+)
+```
+
+The child is already visible.
+
+Good:
+
+```dart
+child
+```
+
+Good:
+
+```dart
+Visibility(
+  visible: isVisible,
+  child: child,
+)
+```
+
+Use `Visibility` when visibility is dynamic.
+
+### `edge_insets_all_zero`
+
+Bad:
+
+```dart
+EdgeInsets.all(0)
+```
+
+`EdgeInsets.zero` already represents zero insets.
+
+Good:
+
+```dart
+EdgeInsets.zero
+```
+
+### `border_radius_circular_zero`
+
+Bad:
+
+```dart
+BorderRadius.circular(0)
+```
+
+`BorderRadius.zero` already represents no radius.
+
+Good:
+
+```dart
+BorderRadius.zero
+```
+
 ### `opacity_one`
 
 Bad:
@@ -154,6 +216,63 @@ Opacity(
 ```
 
 Remove `Opacity` when the value is `1.0`.
+
+### `padding_zero`
+
+Bad:
+
+```dart
+Padding(
+  padding: EdgeInsets.zero,
+  child: child,
+)
+```
+
+No spacing is added.
+
+Good:
+
+```dart
+child
+```
+
+### `transform_scale_one`
+
+Bad:
+
+```dart
+Transform.scale(
+  scale: 1.0,
+  child: child,
+)
+```
+
+The child is not scaled.
+
+Good:
+
+```dart
+child
+```
+
+### `rotated_box_zero_turns`
+
+Bad:
+
+```dart
+RotatedBox(
+  quarterTurns: 0,
+  child: child,
+)
+```
+
+The child is not rotated.
+
+Good:
+
+```dart
+child
+```
 
 ## Installation
 
@@ -223,10 +342,16 @@ custom_lint:
 ### `useless_parameter`
 
 - `expanded_flex_one`
+- `visibility_visible_true`
+- `edge_insets_all_zero`
+- `border_radius_circular_zero`
 
 ### `no_effect_widget`
 
 - `opacity_one`
+- `padding_zero`
+- `transform_scale_one`
+- `rotated_box_zero_turns`
 
 ## Testing
 
@@ -258,6 +383,12 @@ Implemented rules:
 - Container conflict
 - Expanded(flex: 1)
 - Opacity(1.0)
+- Visibility(visible: true)
+- EdgeInsets.all(0)
+- BorderRadius.circular(0)
+- Padding(padding: EdgeInsets.zero)
+- Transform.scale(scale: 1.0)
+- RotatedBox(quarterTurns: 0)
 
 ## Contributing
 
