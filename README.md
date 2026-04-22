@@ -353,6 +353,17 @@ custom_lint:
 - `transform_scale_one`
 - `rotated_box_zero_turns`
 
+## Not Included
+
+These are intentionally not linted yet:
+
+- `Duration.zero`
+- `foregroundDecoration` combinations
+- `InputDecoration` combinations
+
+They may be meaningful depending on the API or context. This package skips
+rules unless they are almost always correct.
+
 ## Testing
 
 The example project doubles as integration coverage.
