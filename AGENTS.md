@@ -288,6 +288,18 @@ dart --version
 dart pub --help
 ```
 
+If the project is using FVM, prefer the project-selected SDK for release
+commands:
+
+```sh
+fvm dart --version
+fvm dart pub --help
+```
+
+Do not mix a global/default `dart` with an FVM-selected project SDK during
+release. If `fvm dart pub publish --dry-run` passes, use `fvm dart pub publish`
+for the actual upload.
+
 Do not assume that `dart pub login`, `dart pub logout`, or `dart pub token`
 exist for the user's active Dart SDK. Only suggest commands shown by
 `dart pub --help` or confirmed by the user.
@@ -302,7 +314,9 @@ cd ..
 dart pub publish --dry-run
 ```
 
-Only publish after `dart pub publish --dry-run` reports zero warnings.
+Use the `fvm dart ...` equivalents when FVM is selected. Only publish after
+`dart pub publish --dry-run` or `fvm dart pub publish --dry-run` reports zero
+warnings.
 
 For actual publishing, use:
 
@@ -315,6 +329,9 @@ or, if the user explicitly accepts the irreversible publish confirmation:
 ```sh
 dart pub publish --force
 ```
+
+Use `fvm dart pub publish` or `fvm dart pub publish --force` when FVM is the
+confirmed SDK for the release.
 
 Publishing is irreversible. Do not create a git release tag until pub.dev
 publish succeeds.
