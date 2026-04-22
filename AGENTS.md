@@ -176,6 +176,22 @@ and have near-zero false positives.
 
 ---
 
+## Skipped Rule Candidates
+
+The following candidates are intentionally not implemented yet:
+
+- `Duration.zero`
+- `Text('')`
+- `SizedBox()`
+- `foregroundDecoration` combinations
+- `InputDecoration` combinations
+
+They may be meaningful depending on the API or context. Do not implement them
+unless the detection can be made almost always correct with near-zero false
+positives.
+
+---
+
 ## Detection Policy
 
 A rule is valid ONLY if:

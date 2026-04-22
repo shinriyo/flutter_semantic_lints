@@ -358,6 +358,8 @@ custom_lint:
 These are intentionally not linted yet:
 
 - `Duration.zero`
+- `Text('')`
+- `SizedBox()`
 - `foregroundDecoration` combinations
 - `InputDecoration` combinations
 
