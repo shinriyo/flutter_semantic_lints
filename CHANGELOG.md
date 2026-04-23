@@ -1,3 +1,10 @@
+## 0.1.4
+
+- Add no-effect widget rule:
+  - `empty_sized_box`
+- Add positive, negative, and edge cases for `empty_sized_box`.
+- Document skipped candidates separately from implemented rules.
+
 ## 0.1.3
 
 - Add useless parameter rules:

@@ -8,6 +8,7 @@ Widget edgeCases({
   required double scale,
   required int quarterTurns,
   required double radius,
+  required Key key,
 }) {
   return Column(
     children: [
@@ -71,6 +72,8 @@ Widget edgeCases({
         ),
         child: const SizedBox(width: 20, height: 20),
       ),
+      // OK: empty_sized_box only flags calls with no arguments.
+      SizedBox(key: key),
     ],
   );
 }

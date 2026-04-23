@@ -1,6 +1,7 @@
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 import 'package:flutter_semantic_lints/src/rules/conflicting_parameter/box_decoration_color_gradient.dart';
 import 'package:flutter_semantic_lints/src/rules/conflicting_parameter/container_color_decoration.dart';
+import 'package:flutter_semantic_lints/src/rules/no_effect_widget/empty_sized_box.dart';
 import 'package:flutter_semantic_lints/src/rules/no_effect_widget/opacity_one.dart';
 import 'package:flutter_semantic_lints/src/rules/no_effect_widget/padding_zero.dart';
 import 'package:flutter_semantic_lints/src/rules/no_effect_widget/rotated_box_zero_turns.dart';
@@ -19,6 +20,7 @@ class FlutterSemanticLintsPlugin extends PluginBase {
         EdgeInsetsAllZero(),
         ExpandedFlexOne(),
         VisibilityVisibleTrue(),
+        EmptySizedBox(),
         OpacityOne(),
         PaddingZero(),
         RotatedBoxZeroTurns(),

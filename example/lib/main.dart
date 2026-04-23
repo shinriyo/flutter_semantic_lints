@@ -69,6 +69,8 @@ class ExampleApp extends StatelessWidget {
               ),
               child: const SizedBox(width: 20, height: 20),
             ),
+            // expect_lint: empty_sized_box
+            const SizedBox(),
           ],
         ),
       ),

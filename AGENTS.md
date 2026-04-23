@@ -72,12 +72,14 @@ Examples:
 - Padding(padding: EdgeInsets.zero)
 - Transform.scale(scale: 1.0)
 - RotatedBox(quarterTurns: 0)
+- SizedBox()
 
 Implemented rules:
 - opacity_one
 - padding_zero
 - transform_scale_one
 - rotated_box_zero_turns
+- empty_sized_box
 
 ---
 
@@ -170,6 +172,7 @@ positive additions.
 - padding_zero
 - transform_scale_one
 - rotated_box_zero_turns
+- empty_sized_box
 
 New rules may be added only when they clearly fit one of the three categories
 and have near-zero false positives.
@@ -182,7 +185,6 @@ The following candidates are intentionally not implemented yet:
 
 - `Duration.zero`
 - `Text('')`
-- `SizedBox()`
 - `foregroundDecoration` combinations
 - `InputDecoration` combinations
 
@@ -277,6 +279,7 @@ Done:
    - Padding(padding: EdgeInsets.zero)
    - Transform.scale(scale: 1.0)
    - RotatedBox(quarterTurns: 0)
+   - SizedBox()
 5. Added example project
 6. Verified lint triggers correctly
 

@@ -274,6 +274,30 @@ Good:
 child
 ```
 
+### `empty_sized_box`
+
+Bad:
+
+```dart
+SizedBox()
+```
+
+No width, height, or child is provided.
+
+Good:
+
+```dart
+SizedBox.shrink()
+```
+
+Good:
+
+```dart
+SizedBox(width: 8)
+```
+
+Use `SizedBox.shrink()` when an explicit zero-size placeholder is intended.
+
 ## Installation
 
 ```yaml
@@ -352,6 +376,7 @@ custom_lint:
 - `padding_zero`
 - `transform_scale_one`
 - `rotated_box_zero_turns`
+- `empty_sized_box`
 
 ## Not Included
 
@@ -359,7 +384,6 @@ These are intentionally not linted yet:
 
 - `Duration.zero`
 - `Text('')`
-- `SizedBox()`
 - `foregroundDecoration` combinations
 - `InputDecoration` combinations
 
@@ -402,6 +426,7 @@ Implemented rules:
 - Padding(padding: EdgeInsets.zero)
 - Transform.scale(scale: 1.0)
 - RotatedBox(quarterTurns: 0)
+- SizedBox()
 
 ## Contributing
 

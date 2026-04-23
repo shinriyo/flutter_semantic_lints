@@ -54,6 +54,12 @@ Widget negativeCases() {
         ),
         child: const SizedBox(width: 20, height: 20),
       ),
+      // OK: empty_sized_box only flags SizedBox with no arguments.
+      const SizedBox(width: 0),
+      // OK: empty_sized_box only flags the unnamed constructor.
+      const SizedBox.shrink(),
+      // OK: empty_sized_box only flags boxes without a child.
+      const SizedBox(child: SizedBox(width: 20, height: 20)),
     ],
   );
 }
