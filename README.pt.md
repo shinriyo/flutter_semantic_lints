@@ -193,6 +193,37 @@ custom_lint:
 - semantics over formatting
 - signal over noise
 
+## Regras implementadas
+
+### `conflicting_parameter`
+
+- `box_decoration_color_gradient`
+- `container_color_decoration`
+
+### `useless_parameter`
+
+- `expanded_flex_one`
+- `visibility_visible_true`
+- `edge_insets_all_zero`
+- `border_radius_circular_zero`
+
+### `no_effect_widget`
+
+- `opacity_one`
+- `padding_zero`
+- `transform_scale_one`
+- `rotated_box_zero_turns`
+- `empty_sized_box`
+
+## Ainda não incluído
+
+- `Duration.zero`
+- `Text('')`
+- `foregroundDecoration` combinations
+- `InputDecoration` combinations
+
+Eles podem ter significado dependendo da API ou do contexto.
+
 ## License
 
 MIT

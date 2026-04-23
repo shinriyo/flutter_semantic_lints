@@ -193,10 +193,28 @@ dart run custom_lint
 ### `useless_parameter`
 
 - `expanded_flex_one`
+- `visibility_visible_true`
+- `edge_insets_all_zero`
+- `border_radius_circular_zero`
 
 ### `no_effect_widget`
 
 - `opacity_one`
+- `padding_zero`
+- `transform_scale_one`
+- `rotated_box_zero_turns`
+- `empty_sized_box`
+
+## 未実装
+
+次の候補はまだ lint しません。
+
+- `Duration.zero`
+- `Text('')`
+- `foregroundDecoration` combinations
+- `InputDecoration` combinations
+
+API や文脈によって意味を持つ可能性があるためです。
 
 ## テスト
 
@@ -226,6 +244,13 @@ MVP
 - Container conflict
 - Expanded(flex: 1)
 - Opacity(1.0)
+- Visibility(visible: true)
+- EdgeInsets.all(0)
+- BorderRadius.circular(0)
+- Padding(padding: EdgeInsets.zero)
+- Transform.scale(scale: 1.0)
+- RotatedBox(quarterTurns: 0)
+- SizedBox()
 
 ## Contributing
 
